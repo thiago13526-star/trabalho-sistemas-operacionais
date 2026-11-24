@@ -1,0 +1,1 @@
+python3 jantar_filosofos.py --versao 2 -n 6 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 5
