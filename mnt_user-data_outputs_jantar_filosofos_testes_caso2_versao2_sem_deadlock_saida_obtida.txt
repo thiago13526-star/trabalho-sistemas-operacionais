@@ -1,0 +1,495 @@
+[0.00s] F0 pensando
+[0.00s] F1 pensando
+[0.00s] F2 pensando
+[0.00s] F3 pensando
+[0.10s] F0 pegou garfo 0
+[0.10s] F0 pegou garfo 1
+[0.10s] F0 comendo
+[0.10s] F2 pegou garfo 2
+[0.10s] F2 pegou garfo 3
+[0.10s] F2 comendo
+[0.20s] F2 largou garfos
+[0.20s] F2 pensando
+[0.21s] F0 largou garfos
+[0.21s] F0 pensando
+[0.21s] F3 pegou garfo 0
+[0.21s] F3 pegou garfo 3
+[0.21s] F3 comendo
+[0.21s] F1 pegou garfo 1
+[0.21s] F1 pegou garfo 2
+[0.21s] F1 comendo
+[0.31s] F1 largou garfos
+[0.31s] F1 pensando
+[0.31s] F3 largou garfos
+[0.31s] F3 pensando
+[0.31s] F0 pegou garfo 0
+[0.31s] F0 pegou garfo 1
+[0.31s] F0 comendo
+[0.31s] F2 pegou garfo 2
+[0.31s] F2 pegou garfo 3
+[0.31s] F2 comendo
+[0.41s] F2 largou garfos
+[0.41s] F2 pensando
+[0.41s] F0 largou garfos
+[0.41s] F0 pensando
+[0.41s] F1 pegou garfo 1
+[0.41s] F1 pegou garfo 2
+[0.41s] F1 comendo
+[0.41s] F3 pegou garfo 0
+[0.41s] F3 pegou garfo 3
+[0.41s] F3 comendo
+[0.51s] F1 largou garfos
+[0.51s] F1 pensando
+[0.51s] F3 largou garfos
+[0.51s] F3 pensando
+[0.51s] F2 pegou garfo 2
+[0.51s] F2 pegou garfo 3
+[0.51s] F2 comendo
+[0.51s] F0 pegou garfo 0
+[0.51s] F0 pegou garfo 1
+[0.51s] F0 comendo
+[0.61s] F2 largou garfos
+[0.61s] F2 pensando
+[0.61s] F0 largou garfos
+[0.61s] F0 pensando
+[0.61s] F3 pegou garfo 0
+[0.61s] F3 pegou garfo 3
+[0.61s] F3 comendo
+[0.61s] F1 pegou garfo 1
+[0.61s] F1 pegou garfo 2
+[0.61s] F1 comendo
+[0.71s] F1 largou garfos
+[0.71s] F1 pensando
+[0.71s] F3 largou garfos
+[0.71s] F3 pensando
+[0.71s] F0 pegou garfo 0
+[0.71s] F0 pegou garfo 1
+[0.71s] F0 comendo
+[0.71s] F2 pegou garfo 2
+[0.71s] F2 pegou garfo 3
+[0.71s] F2 comendo
+[0.81s] F2 largou garfos
+[0.81s] F2 pensando
+[0.81s] F0 largou garfos
+[0.81s] F0 pensando
+[0.81s] F3 pegou garfo 0
+[0.81s] F3 pegou garfo 3
+[0.81s] F3 comendo
+[0.81s] F1 pegou garfo 1
+[0.81s] F1 pegou garfo 2
+[0.81s] F1 comendo
+[0.91s] F3 largou garfos
+[0.91s] F3 pensando
+[0.91s] F1 largou garfos
+[0.91s] F1 pensando
+[0.91s] F0 pegou garfo 0
+[0.91s] F0 pegou garfo 1
+[0.91s] F0 comendo
+[0.91s] F2 pegou garfo 2
+[0.91s] F2 pegou garfo 3
+[0.91s] F2 comendo
+[1.01s] F0 largou garfos
+[1.01s] F0 pensando
+[1.01s] F2 largou garfos
+[1.01s] F2 pensando
+[1.01s] F3 pegou garfo 0
+[1.01s] F3 pegou garfo 3
+[1.01s] F3 comendo
+[1.01s] F1 pegou garfo 1
+[1.01s] F1 pegou garfo 2
+[1.01s] F1 comendo
+[1.11s] F3 largou garfos
+[1.11s] F3 pensando
+[1.11s] F1 largou garfos
+[1.11s] F1 pensando
+[1.11s] F2 pegou garfo 2
+[1.11s] F2 pegou garfo 3
+[1.11s] F2 comendo
+[1.11s] F0 pegou garfo 0
+[1.11s] F0 pegou garfo 1
+[1.11s] F0 comendo
+[1.21s] F2 largou garfos
+[1.21s] F2 pensando
+[1.21s] F0 largou garfos
+[1.21s] F0 pensando
+[1.21s] F1 pegou garfo 1
+[1.21s] F1 pegou garfo 2
+[1.21s] F1 comendo
+[1.21s] F3 pegou garfo 0
+[1.21s] F3 pegou garfo 3
+[1.21s] F3 comendo
+[1.31s] F1 largou garfos
+[1.31s] F1 pensando
+[1.31s] F3 largou garfos
+[1.31s] F3 pensando
+[1.31s] F0 pegou garfo 0
+[1.31s] F0 pegou garfo 1
+[1.31s] F0 comendo
+[1.31s] F2 pegou garfo 2
+[1.31s] F2 pegou garfo 3
+[1.31s] F2 comendo
+[1.41s] F0 largou garfos
+[1.41s] F0 pensando
+[1.41s] F3 pegou garfo 0
+[1.41s] F2 largou garfos
+[1.41s] F2 pensando
+[1.41s] F3 pegou garfo 3
+[1.41s] F3 comendo
+[1.41s] F1 pegou garfo 1
+[1.41s] F1 pegou garfo 2
+[1.41s] F1 comendo
+[1.51s] F3 largou garfos
+[1.51s] F3 pensando
+[1.51s] F1 largou garfos
+[1.51s] F1 pensando
+[1.51s] F2 pegou garfo 2
+[1.51s] F2 pegou garfo 3
+[1.51s] F2 comendo
+[1.51s] F0 pegou garfo 0
+[1.51s] F0 pegou garfo 1
+[1.51s] F0 comendo
+[1.61s] F2 largou garfos
+[1.61s] F2 pensando
+[1.61s] F0 largou garfos
+[1.61s] F0 pensando
+[1.61s] F1 pegou garfo 1
+[1.61s] F1 pegou garfo 2
+[1.61s] F1 comendo
+[1.61s] F3 pegou garfo 0
+[1.61s] F3 pegou garfo 3
+[1.61s] F3 comendo
+[1.71s] F1 largou garfos
+[1.71s] F1 pensando
+[1.71s] F3 largou garfos
+[1.71s] F3 pensando
+[1.71s] F0 pegou garfo 0
+[1.71s] F0 pegou garfo 1
+[1.71s] F0 comendo
+[1.71s] F2 pegou garfo 2
+[1.71s] F2 pegou garfo 3
+[1.71s] F2 comendo
+[1.81s] F0 largou garfos
+[1.81s] F0 pensando
+[1.81s] F3 pegou garfo 0
+[1.81s] F2 largou garfos
+[1.81s] F2 pensando
+[1.81s] F3 pegou garfo 3
+[1.81s] F3 comendo
+[1.81s] F1 pegou garfo 1
+[1.81s] F1 pegou garfo 2
+[1.81s] F1 comendo
+[1.91s] F3 largou garfos
+[1.91s] F3 pensando
+[1.91s] F1 largou garfos
+[1.91s] F1 pensando
+[1.91s] F2 pegou garfo 2
+[1.91s] F2 pegou garfo 3
+[1.91s] F2 comendo
+[1.91s] F0 pegou garfo 0
+[1.91s] F0 pegou garfo 1
+[1.91s] F0 comendo
+[2.01s] F2 largou garfos
+[2.01s] F2 pensando
+[2.01s] F0 largou garfos
+[2.01s] F0 pensando
+[2.01s] F1 pegou garfo 1
+[2.01s] F1 pegou garfo 2
+[2.01s] F1 comendo
+[2.01s] F3 pegou garfo 0
+[2.01s] F3 pegou garfo 3
+[2.01s] F3 comendo
+[2.11s] F1 largou garfos
+[2.11s] F1 pensando
+[2.11s] F3 largou garfos
+[2.11s] F3 pensando
+[2.11s] F0 pegou garfo 0
+[2.11s] F0 pegou garfo 1
+[2.11s] F0 comendo
+[2.11s] F2 pegou garfo 2
+[2.11s] F2 pegou garfo 3
+[2.11s] F2 comendo
+[2.21s] F0 largou garfos
+[2.21s] F0 pensando
+[2.21s] F2 largou garfos
+[2.21s] F2 pensando
+[2.21s] F3 pegou garfo 0
+[2.21s] F3 pegou garfo 3
+[2.21s] F3 comendo
+[2.21s] F1 pegou garfo 1
+[2.21s] F1 pegou garfo 2
+[2.21s] F1 comendo
+[2.31s] F3 largou garfos
+[2.31s] F3 pensando
+[2.31s] F1 largou garfos
+[2.31s] F1 pensando
+[2.31s] F2 pegou garfo 2
+[2.31s] F2 pegou garfo 3
+[2.31s] F2 comendo
+[2.31s] F0 pegou garfo 0
+[2.31s] F0 pegou garfo 1
+[2.31s] F0 comendo
+[2.41s] F0 largou garfos
+[2.41s] F0 pensando
+[2.41s] F2 largou garfos
+[2.41s] F2 pensando
+[2.41s] F1 pegou garfo 1
+[2.41s] F1 pegou garfo 2
+[2.41s] F1 comendo
+[2.41s] F3 pegou garfo 0
+[2.41s] F3 pegou garfo 3
+[2.41s] F3 comendo
+[2.51s] F1 largou garfos
+[2.51s] F1 pensando
+[2.51s] F2 pegou garfo 2
+[2.51s] F3 largou garfos
+[2.51s] F3 pensando
+[2.51s] F2 pegou garfo 3
+[2.51s] F2 comendo
+[2.51s] F0 pegou garfo 0
+[2.51s] F0 pegou garfo 1
+[2.51s] F0 comendo
+[2.61s] F2 largou garfos
+[2.61s] F2 pensando
+[2.61s] F0 largou garfos
+[2.61s] F0 pensando
+[2.61s] F3 pegou garfo 0
+[2.61s] F3 pegou garfo 3
+[2.61s] F3 comendo
+[2.61s] F1 pegou garfo 1
+[2.61s] F1 pegou garfo 2
+[2.61s] F1 comendo
+[2.71s] F3 largou garfos
+[2.71s] F3 pensando
+[2.71s] F1 largou garfos
+[2.71s] F1 pensando
+[2.71s] F0 pegou garfo 0
+[2.71s] F0 pegou garfo 1
+[2.71s] F0 comendo
+[2.71s] F2 pegou garfo 2
+[2.71s] F2 pegou garfo 3
+[2.71s] F2 comendo
+[2.81s] F0 largou garfos
+[2.81s] F0 pensando
+[2.81s] F2 largou garfos
+[2.81s] F2 pensando
+[2.81s] F1 pegou garfo 1
+[2.81s] F1 pegou garfo 2
+[2.81s] F1 comendo
+[2.81s] F3 pegou garfo 0
+[2.81s] F3 pegou garfo 3
+[2.81s] F3 comendo
+[2.91s] F1 largou garfos
+[2.91s] F1 pensando
+[2.91s] F3 largou garfos
+[2.91s] F3 pensando
+[2.91s] F2 pegou garfo 2
+[2.91s] F2 pegou garfo 3
+[2.91s] F2 comendo
+[2.91s] F0 pegou garfo 0
+[2.91s] F0 pegou garfo 1
+[2.91s] F0 comendo
+[3.01s] F2 largou garfos
+[3.01s] F2 pensando
+[3.01s] F0 largou garfos
+[3.01s] F0 pensando
+[3.01s] F3 pegou garfo 0
+[3.01s] F3 pegou garfo 3
+[3.01s] F3 comendo
+[3.01s] F1 pegou garfo 1
+[3.01s] F1 pegou garfo 2
+[3.01s] F1 comendo
+[3.11s] F3 largou garfos
+[3.11s] F3 pensando
+[3.11s] F0 pegou garfo 0
+[3.11s] F1 largou garfos
+[3.11s] F1 pensando
+[3.11s] F0 pegou garfo 1
+[3.11s] F0 comendo
+[3.11s] F2 pegou garfo 2
+[3.11s] F2 pegou garfo 3
+[3.11s] F2 comendo
+[3.21s] F0 largou garfos
+[3.21s] F0 pensando
+[3.21s] F1 pegou garfo 1
+[3.21s] F2 largou garfos
+[3.21s] F2 pensando
+[3.21s] F1 pegou garfo 2
+[3.21s] F1 comendo
+[3.21s] F3 pegou garfo 0
+[3.21s] F3 pegou garfo 3
+[3.21s] F3 comendo
+[3.31s] F1 largou garfos
+[3.31s] F1 pensando
+[3.31s] F3 largou garfos
+[3.31s] F3 pensando
+[3.31s] F0 pegou garfo 0
+[3.31s] F0 pegou garfo 1
+[3.31s] F0 comendo
+[3.31s] F2 pegou garfo 2
+[3.31s] F2 pegou garfo 3
+[3.31s] F2 comendo
+[3.41s] F2 largou garfos
+[3.41s] F2 pensando
+[3.41s] F0 largou garfos
+[3.41s] F0 pensando
+[3.41s] F3 pegou garfo 0
+[3.41s] F3 pegou garfo 3
+[3.41s] F3 comendo
+[3.41s] F1 pegou garfo 1
+[3.41s] F1 pegou garfo 2
+[3.41s] F1 comendo
+[3.51s] F1 largou garfos
+[3.51s] F1 pensando
+[3.51s] F3 largou garfos
+[3.51s] F3 pensando
+[3.51s] F2 pegou garfo 2
+[3.51s] F2 pegou garfo 3
+[3.51s] F2 comendo
+[3.51s] F0 pegou garfo 0
+[3.51s] F0 pegou garfo 1
+[3.51s] F0 comendo
+[3.61s] F2 largou garfos
+[3.61s] F2 pensando
+[3.61s] F0 largou garfos
+[3.61s] F0 pensando
+[3.61s] F3 pegou garfo 0
+[3.61s] F3 pegou garfo 3
+[3.61s] F3 comendo
+[3.61s] F1 pegou garfo 1
+[3.61s] F1 pegou garfo 2
+[3.61s] F1 comendo
+[3.71s] F3 largou garfos
+[3.71s] F3 pensando
+[3.71s] F1 largou garfos
+[3.71s] F1 pensando
+[3.71s] F0 pegou garfo 0
+[3.71s] F0 pegou garfo 1
+[3.71s] F0 comendo
+[3.71s] F2 pegou garfo 2
+[3.71s] F2 pegou garfo 3
+[3.71s] F2 comendo
+[3.82s] F2 largou garfos
+[3.82s] F2 pensando
+[3.82s] F0 largou garfos
+[3.82s] F0 pensando
+[3.82s] F1 pegou garfo 1
+[3.82s] F1 pegou garfo 2
+[3.82s] F1 comendo
+[3.82s] F3 pegou garfo 0
+[3.82s] F3 pegou garfo 3
+[3.82s] F3 comendo
+[3.92s] F1 largou garfos
+[3.92s] F1 pensando
+[3.92s] F3 largou garfos
+[3.92s] F3 pensando
+[3.92s] F2 pegou garfo 2
+[3.92s] F2 pegou garfo 3
+[3.92s] F2 comendo
+[3.92s] F0 pegou garfo 0
+[3.92s] F0 pegou garfo 1
+[3.92s] F0 comendo
+[4.02s] F2 largou garfos
+[4.02s] F2 pensando
+[4.02s] F0 largou garfos
+[4.02s] F0 pensando
+[4.02s] F1 pegou garfo 1
+[4.02s] F1 pegou garfo 2
+[4.02s] F1 comendo
+[4.02s] F3 pegou garfo 0
+[4.02s] F3 pegou garfo 3
+[4.02s] F3 comendo
+[4.12s] F1 largou garfos
+[4.12s] F1 pensando
+[4.12s] F3 largou garfos
+[4.12s] F3 pensando
+[4.12s] F0 pegou garfo 0
+[4.12s] F0 pegou garfo 1
+[4.12s] F0 comendo
+[4.12s] F2 pegou garfo 2
+[4.12s] F2 pegou garfo 3
+[4.12s] F2 comendo
+[4.22s] F2 largou garfos
+[4.22s] F2 pensando
+[4.22s] F0 largou garfos
+[4.22s] F0 pensando
+[4.22s] F3 pegou garfo 0
+[4.22s] F3 pegou garfo 3
+[4.22s] F3 comendo
+[4.22s] F1 pegou garfo 1
+[4.22s] F1 pegou garfo 2
+[4.22s] F1 comendo
+[4.32s] F3 largou garfos
+[4.32s] F3 pensando
+[4.32s] F1 largou garfos
+[4.32s] F1 pensando
+[4.32s] F2 pegou garfo 2
+[4.32s] F2 pegou garfo 3
+[4.32s] F2 comendo
+[4.32s] F0 pegou garfo 0
+[4.32s] F0 pegou garfo 1
+[4.32s] F0 comendo
+[4.42s] F2 largou garfos
+[4.42s] F2 pensando
+[4.42s] F0 largou garfos
+[4.42s] F0 pensando
+[4.42s] F1 pegou garfo 1
+[4.42s] F1 pegou garfo 2
+[4.42s] F1 comendo
+[4.42s] F3 pegou garfo 0
+[4.42s] F3 pegou garfo 3
+[4.42s] F3 comendo
+[4.52s] F1 largou garfos
+[4.52s] F1 pensando
+[4.52s] F3 largou garfos
+[4.52s] F3 pensando
+[4.52s] F0 pegou garfo 0
+[4.52s] F0 pegou garfo 1
+[4.52s] F0 comendo
+[4.52s] F2 pegou garfo 2
+[4.52s] F2 pegou garfo 3
+[4.52s] F2 comendo
+[4.62s] F0 largou garfos
+[4.62s] F0 pensando
+[4.62s] F3 pegou garfo 0
+[4.62s] F2 largou garfos
+[4.62s] F2 pensando
+[4.62s] F3 pegou garfo 3
+[4.62s] F3 comendo
+[4.62s] F1 pegou garfo 1
+[4.62s] F1 pegou garfo 2
+[4.62s] F1 comendo
+[4.72s] F3 largou garfos
+[4.72s] F3 pensando
+[4.72s] F1 largou garfos
+[4.72s] F1 pensando
+[4.72s] F2 pegou garfo 2
+[4.72s] F2 pegou garfo 3
+[4.72s] F2 comendo
+[4.72s] F0 pegou garfo 0
+[4.72s] F0 pegou garfo 1
+[4.72s] F0 comendo
+[4.82s] F2 largou garfos
+[4.82s] F2 pensando
+[4.82s] F0 largou garfos
+[4.82s] F0 pensando
+[4.82s] F1 pegou garfo 1
+[4.82s] F1 pegou garfo 2
+[4.82s] F1 comendo
+[4.82s] F3 pegou garfo 0
+[4.82s] F3 pegou garfo 3
+[4.82s] F3 comendo
+[4.92s] F1 largou garfos
+[4.92s] F1 pensando
+[4.92s] F3 largou garfos
+[4.92s] F3 pensando
+[4.92s] F0 pegou garfo 0
+[4.92s] F0 pegou garfo 1
+[4.92s] F0 comendo
+[4.92s] F2 pegou garfo 2
+[4.92s] F2 pegou garfo 3
+[4.92s] F2 comendo
+[5.02s] F0 largou garfos
+[5.02s] F2 largou garfos
+
+Refeicoes por filosofo: F0=25 F1=24 F2=25 F3=24
+Total: 98 refeicoes em 5s
