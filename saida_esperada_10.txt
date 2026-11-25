@@ -1,2 +1,0 @@
-# --duracao negativa -> erro: deve ser maior que zero
-main.py: error: argument --duracao: valor invalido: '-5' (deve ser maior que zero)
