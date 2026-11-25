@@ -1,2 +1,0 @@
-# -n abaixo do minimo (-n 1) -> erro: minimo 2
-main.py: error: argument -n: -n deve ser no minimo 2 (recebido 1)
