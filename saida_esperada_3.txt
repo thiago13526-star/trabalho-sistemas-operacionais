@@ -1,7 +1,0 @@
-# Versao 2 com tempos maiores (1.0s) -> sem deadlock
-=== Jantar dos Filosofos ===
-filosofos: 4
-tempo pensando: 1.0
-tempo comendo: 1.0
-duracao: 3.0
-=============================
