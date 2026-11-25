@@ -1,0 +1,2 @@
+# Versao invalida (--versao 3) -> erro de escolha invalida
+main.py: error: argument --versao: invalid choice: 3 (choose from 1, 2)

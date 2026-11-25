@@ -1,0 +1,2 @@
+# --tempo-comendo nao numerico -> erro: valor invalido
+main.py: error: argument --tempo-comendo/--comendo: valor invalido: 'abc' (deve ser um numero)

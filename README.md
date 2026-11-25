@@ -1,5 +1,3 @@
-[README.md](https://github.com/user-attachments/files/35390380/README.md)
-
 # Jantar dos Filósofos — 2 Versões (4 Filósofos, 4 Garfos)
 
 Trabalho 1 de Sistemas Operacionais — Engenharia de Computação.

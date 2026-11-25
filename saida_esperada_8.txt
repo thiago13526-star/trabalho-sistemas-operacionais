@@ -1,0 +1,2 @@
+# Sem --versao -> erro de argumento obrigatorio
+main.py: error: the following arguments are required: --versao

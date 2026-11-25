@@ -1,0 +1,7 @@
+# Versao 2 so com --duracao, resto no padrao (n=4) -> sem deadlock
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 0.2
+tempo comendo: 0.2
+duracao: 2.0
+=============================
