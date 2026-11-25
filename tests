@@ -1,0 +1,711 @@
+# Jantar dos Filósofos — 2 Versões (4 Filósofos, 4 Garfos)
+
+Trabalho 1 de Sistemas Operacionais — Engenharia de Computação.
+Parte da **Pessoa 5 (Testes e README)**: arquivos de entrada/saída
+esperada dos casos de teste obrigatórios + este README, com instruções
+de compilação, execução e a tabela de resultados.
+
+> **Nota de transparência:** este README e os arquivos de teste foram
+> montados a partir do conteúdo real do repositório do grupo
+> (`run_tests.py`, `versao1_parametrizada.py`, `versao2_parametrizada.py`,
+> `versao1_com_deadlock.c`, `versao2_sem_deadlock.py` e o rascunho
+> `README_DAVID.md`, que documenta a CLI e já lista os 11 casos de
+> teste). As páginas de `main.py` e `cli.py` não foram salvas
+> corretamente no export do GitHub que vocês me enviaram (só os
+> assets da página, sem o código). Por isso eu **reconstruí
+> `main.py` e `cli.py` seguindo exatamente a especificação descrita em
+> `README_DAVID.md`** (mesmos nomes de flags, valores padrão, regras
+> de validação e mensagens de erro), rodei tudo de verdade e gerei os
+> arquivos de teste a partir dessa execução real. Se o `main.py`/`cli.py`
+> que já está no repositório for ligeiramente diferente (outra
+> mensagem de erro, por exemplo), basta substituir os dois arquivos
+> pelos originais do grupo e rodar `python3 run_tests.py --gerar` de
+> novo — a estrutura de testes continua 100% compatível.
+
+## 1. Visão geral
+
+- **Versão 1 (Com Deadlock):** cada filósofo pega o garfo da esquerda,
+  faz uma pausa curta e só então tenta pegar o da direita. Todos
+  ficam presos esperando o garfo do vizinho → deadlock.
+- **Versão 2 (Sem Deadlock):** cada filósofo pega sempre primeiro o
+  garfo de **menor** número, depois o de **maior** número. Essa
+  ordenação de recursos elimina a espera circular.
+
+## 2. Requisitos e compilação
+
+- **Python 3.10+** (nenhuma biblioteca externa). Não há etapa de
+  compilação — é só executar o `main.py` com o interpretador Python.
+
+```bash
+python3 --version
+```
+
+## 3. Execução
+
+```bash
+python main.py --versao {1|2} [-n N] [--tempo-pensando SEG] [--tempo-comendo SEG] [--duracao SEG]
+```
+
+(no Linux/macOS use `python3`)
+
+| Parâmetro | Obrigatório | Padrão | Descrição |
+|---|:---:|:---:|---|
+| `--versao` | Sim | — | `1` = com deadlock; `2` = sem deadlock |
+| `-n` | Não | `4` | número de filósofos/garfos (mínimo 2) |
+| `--tempo-pensando` (ou `--pensando`) | Não | `0.2` | tempo pensando, em segundos |
+| `--tempo-comendo` (ou `--comendo`) | Não | `0.2` | tempo comendo, em segundos |
+| `--duracao` | Não | `10` | duração da simulação, em segundos |
+
+Entradas inválidas (versão fora de 1/2, `-n < 2`, tempos ≤ 0 ou não
+numéricos, falta de `--versao`) mostram uma mensagem de erro clara e
+saem com código **2**. `python main.py --help` lista tudo.
+
+Exemplo:
+
+```bash
+python main.py --versao 1 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3
+```
+
+## 4. Arquivos do projeto
+
+```
+.
+├── main.py                     # Pessoa 4: integra as duas versões (reconstruído, ver nota acima)
+├── cli.py                      # Pessoa 4: leitura/validação dos parâmetros (reconstruído, ver nota acima)
+├── versao1_parametrizada.py    # Pessoa 4: lógica da Versão 1 (Pessoa 1), como executar(N, pensando, comendo, duracao)
+├── versao2_parametrizada.py    # Pessoa 4: lógica da Versão 2 (Nicolas), como executar(N, pensando, comendo, duracao)
+├── versao1_com_deadlock.c      # original da Pessoa 1 (N=5 fixo) — mantido sem alteração, referência
+├── versao2_sem_deadlock.py     # original (N=4 fixo) — mantido sem alteração, referência
+├── run_tests.py                # executa os casos de teste e compara com a saída esperada
+├── README.md                   # este arquivo
+└── tests/
+    ├── casos.py                 # lista dos 11 casos de teste (descrição + argumentos)
+    ├── entrada_K.txt             # argumentos de linha de comando do caso K
+    └── saida_esperada_K.txt      # saída esperada do caso K (cabeçalho + deadlock/erro)
+```
+
+## 5. Casos de teste obrigatórios
+
+`run_tests.py` lê `tests/entrada_K.txt`, roda `main.py` com esses
+argumentos e compara com `tests/saida_esperada_K.txt`. Para não
+depender da ordem exata das threads (que varia a cada execução), a
+comparação usa só as linhas relevantes e determinísticas: o
+cabeçalho com os parâmetros (`===`, `filosofos`, `tempo pensando`,
+`tempo comendo`, `duracao`), o aviso de deadlock (com o número de
+filósofos travados normalizado para `N`) e as mensagens de erro do
+`main.py`. As linhas de log de cada filósofo (pensando/comendo/garfo)
+não entram na comparação, porque threads reais do SO não garantem a
+mesma ordem a cada execução — só o resultado final é cobrado.
+
+Para rodar:
+
+```bash
+python3 run_tests.py
+```
+
+Para regerar os arquivos de entrada/saída esperada (só se mudar o
+`main.py`/`cli.py` do grupo):
+
+```bash
+python3 run_tests.py --gerar
+```
+
+## 6. Tabela de resultados
+
+Resultado real, obtido rodando `python3 run_tests.py` com Python 3.12
+(executado 3 vezes seguidas para confirmar reprodutibilidade — os 11
+casos passaram nas 3 execuções):
+
+| # | Caso | Entrada (argumentos) | Esperado | Resultado |
+|:---:|---|---|---|:---:|
+| 1 | Versão 1, tempos curtos | `--versao 1 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3` | deadlock detectado | **OK** |
+| 2 | Versão 2, mesmos tempos | `--versao 2 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3` | sem deadlock | **OK** |
+| 3 | Versão 2, tempos maiores (1.0s) | `--versao 2 --tempo-pensando 1.0 --tempo-comendo 1.0 --duracao 3` | sem deadlock | **OK** |
+| 4 | Versão 2, só `--duracao` (padrões, n=4) | `--versao 2 --duracao 2` | sem deadlock | **OK** |
+| 5 | Versão 2, `-n 6` | `--versao 2 -n 6 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 2` | cabeçalho com 6 filósofos | **OK** |
+| 6 | Nomes curtos `--pensando`/`--comendo` | `--versao 2 --pensando 0.1 --comendo 0.1 --duracao 2` | aceitos | **OK** |
+| 7 | `--versao 3` (inválida) | `--versao 3` | erro: escolha inválida | **OK** |
+| 8 | sem `--versao` | *(vazio)* | erro: argumento obrigatório | **OK** |
+| 9 | `-n 1` (abaixo do mínimo) | `--versao 2 -n 1` | erro: n mínimo 2 | **OK** |
+| 10 | `--duracao -5` | `--versao 2 --duracao -5` | erro: deve ser maior que zero | **OK** |
+| 11 | `--tempo-comendo abc` | `--versao 2 --tempo-comendo abc` | erro: valor inválido | **OK** |
+
+**11/11 testes passaram.**
+
+## 7. Respostas às perguntas da aula
+
+1. **Qual condição de Coffman a Versão 2 elimina?**
+   A **espera circular** (*circular wait*). Ao impor uma ordem total
+   sobre os garfos (sempre pegar primeiro o de menor número), é
+   impossível formar um ciclo de filósofos esperando uns pelos
+   outros — o que elimina o deadlock mesmo mantendo as outras três
+   condições de Coffman (exclusão mútua, posse e espera, não
+   preempção).
+
+2. **Houve diferença grande no número de refeições entre os
+   filósofos (indício de inanição)?**
+   Nos casos de teste rodados (duração curta, 2–3s), o número de
+   refeições ficou bem próximo entre os filósofos (por exemplo, no
+   Caso 2: F0=14, F1=14, F2=15, F3=14 — ver saída completa rodando o
+   comando do caso 2 diretamente). Não há indício de inanição nessas
+   durações; para investigar inanição de forma mais conclusiva,
+   recomenda-se rodar a Versão 2 por uma duração bem mais longa
+   (minutos) e comparar a variação entre o filósofo que mais comeu e
+   o que menos comeu.
+
+"""cli.py - Pessoa 4: leitura e validacao dos parametros de linha de comando.
+
+Reconstruido a partir da especificacao em README_DAVID.md (o arquivo
+original nao foi salvo corretamente no export do GitHub). Mantem os
+mesmos nomes de flags, valores padrao e regras de validacao descritos
+la, para que os 11 casos de teste documentados continuem valendo.
+"""
+import argparse
+
+
+def _tempo_positivo(valor):
+    try:
+        f = float(valor)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"valor invalido: {valor!r} (deve ser um numero)")
+    if f <= 0:
+        raise argparse.ArgumentTypeError(
+            f"valor invalido: {valor!r} (deve ser maior que zero)")
+    return f
+
+
+def _n_minimo_dois(valor):
+    try:
+        i = int(valor)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"valor invalido: {valor!r} (deve ser um numero inteiro)")
+    if i < 2:
+        raise argparse.ArgumentTypeError(
+            f"-n deve ser no minimo 2 (recebido {i})")
+    return i
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Jantar dos Filosofos - Versao 1 (com deadlock) e Versao 2 (sem deadlock)")
+    parser.add_argument(
+        "--versao", type=int, choices=[1, 2], required=True,
+        help="1 = com deadlock, 2 = sem deadlock")
+    parser.add_argument(
+        "-n", type=_n_minimo_dois, default=4,
+        help="numero de filosofos/garfos (minimo 2, padrao 4)")
+    parser.add_argument(
+        "--tempo-pensando", "--pensando", dest="pensando",
+        type=_tempo_positivo, default=0.2,
+        help="tempo pensando, em segundos (padrao 0.2)")
+    parser.add_argument(
+        "--tempo-comendo", "--comendo", dest="comendo",
+        type=_tempo_positivo, default=0.2,
+        help="tempo comendo, em segundos (padrao 0.2)")
+    parser.add_argument(
+        "--duracao", type=_tempo_positivo, default=10.0,
+        help="duracao da simulacao, em segundos (padrao 10)")
+    return parser.parse_args(argv)
+
+#!/usr/bin/env python3
+"""main.py - Pessoa 4: integracao das duas versoes (ambas em Python).
+
+Reconstruido a partir da especificacao em README_DAVID.md (o arquivo
+original nao foi salvo corretamente no export do GitHub). Le os
+parametros via cli.py e chama executar(N, pensando, comendo, duracao)
+de versao1_parametrizada.py ou versao2_parametrizada.py.
+
+As linhas do cabecalho abaixo ("===", "filosofos", "tempo pensando",
+"tempo comendo", "duracao") sao exatamente as que run_tests.py filtra
+(PREFIXOS) para compor a saida esperada de cada caso de teste.
+"""
+from cli import parse_args
+import versao1_parametrizada
+import versao2_parametrizada
+
+
+def main(argv=None):
+    args = parse_args(argv)
+
+    print("=== Jantar dos Filosofos ===")
+    print(f"versao: {args.versao}")
+    print(f"filosofos: {args.n}")
+    print(f"tempo pensando: {args.pensando}")
+    print(f"tempo comendo: {args.comendo}")
+    print(f"duracao: {args.duracao}")
+    print("=============================")
+
+    if args.versao == 1:
+        versao1_parametrizada.executar(args.n, args.pensando, args.comendo, args.duracao)
+    else:
+        versao2_parametrizada.executar(args.n, args.pensando, args.comendo, args.duracao)
+
+
+if __name__ == "__main__":
+    main()
+
+"""Executa os casos de teste: le tests/entrada_K.txt e compara com tests/saida_esperada_K.txt.
+Uso: python3 run_tests.py          (executa e compara)
+     python3 run_tests.py --gerar  (regrava entrada/saida esperada - so para o autor)"""
+import re, subprocess, sys, shlex
+from pathlib import Path
+sys.path.insert(0, "tests")
+from casos import CASOS
+
+T = Path("tests")
+PREFIXOS = ("===", "filosofos", "tempo", "duracao", "main.py: error")
+
+def saida_relevante(args):
+    r = subprocess.run([sys.executable, "main.py", *shlex.split(args)],
+                       capture_output=True, text=True)
+    linhas = []
+    for l in (r.stdout + r.stderr).splitlines():
+        if "DEADLOCK DETECTADO" in l:
+            l = re.sub(r"^\[[\d.]+s\] ", "", l)
+            l = re.sub(r"\d+ filosofo", "N filosofo", l)
+            linhas.append(l)
+        elif l.startswith(PREFIXOS):
+            linhas.append(l)
+    return "\n".join(linhas) + "\n"
+
+if "--gerar" in sys.argv:
+    for k, (desc, args) in enumerate(CASOS, 1):
+        (T / f"entrada_{k}.txt").write_text(args + "\n")
+        (T / f"saida_esperada_{k}.txt").write_text(f"# {desc}\n" + saida_relevante(args))
+    print("arquivos gerados"); sys.exit()
+
+ok = 0
+for k in range(1, len(CASOS) + 1):
+    args = (T / f"entrada_{k}.txt").read_text().strip()
+    esperado = (T / f"saida_esperada_{k}.txt").read_text().split("\n", 1)[1]
+    obtido = saida_relevante(args)
+    passou = esperado == obtido
+    ok += passou
+    print(f"Teste {k}: {'OK  ' if passou else 'FALHOU'} | {CASOS[k-1][0]}")
+    if not passou:
+        print("  esperado:\n" + esperado + "  obtido:\n" + obtido)
+print(f"\n{ok}/{len(CASOS)} testes passaram")
+sys.exit(0 if ok == len(CASOS) else 1)
+"""Casos de teste obrigatorios do Jantar dos Filosofos.
+
+Cada item e uma tupla (descricao, argumentos_de_linha_de_comando).
+Esta lista reflete a tabela de 11 casos documentada em README_DAVID.md
+(secao "Testes"), que e a referencia oficial combinada pela equipe.
+"""
+
+CASOS = [
+    ("Versao 1 com tempos curtos -> deadlock detectado",
+     "--versao 1 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3"),
+
+    ("Versao 2 com os mesmos tempos -> sem deadlock",
+     "--versao 2 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3"),
+
+    ("Versao 2 com tempos maiores (1.0s) -> sem deadlock",
+     "--versao 2 --tempo-pensando 1.0 --tempo-comendo 1.0 --duracao 3"),
+
+    ("Versao 2 so com --duracao, resto no padrao (n=4) -> sem deadlock",
+     "--versao 2 --duracao 2"),
+
+    ("Versao 2 com -n 6 -> cabecalho mostra 6 filosofos",
+     "--versao 2 -n 6 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 2"),
+
+    ("Nomes curtos --pensando/--comendo sao aceitos",
+     "--versao 2 --pensando 0.1 --comendo 0.1 --duracao 2"),
+
+    ("Versao invalida (--versao 3) -> erro de escolha invalida",
+     "--versao 3"),
+
+    ("Sem --versao -> erro de argumento obrigatorio",
+     ""),
+
+    ("-n abaixo do minimo (-n 1) -> erro: minimo 2",
+     "--versao 2 -n 1"),
+
+    ("--duracao negativa -> erro: deve ser maior que zero",
+     "--versao 2 --duracao -5"),
+
+    ("--tempo-comendo nao numerico -> erro: valor invalido",
+     "--versao 2 --tempo-comendo abc"),
+]
+
+--versao 1 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3
+
+--versao 2 --duracao -5
+
+--versao 2 --tempo-comendo abc
+
+--versao 2 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3
+
+--versao 2 --tempo-pensando 1.0 --tempo-comendo 1.0 --duracao 3
+
+--versao 2 --duracao 2
+
+--versao 2 -n 6 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 2
+
+--versao 2 --pensando 0.1 --comendo 0.1 --duracao 2
+
+--versao 3
+
+
+
+--versao 2 -n 1
+
+# Versao 1 com tempos curtos -> deadlock detectado
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 0.1
+tempo comendo: 0.1
+duracao: 3.0
+=============================
+DEADLOCK DETECTADO: N filosofo(s) ainda bloqueado(s) apos 3s
+
+# --duracao negativa -> erro: deve ser maior que zero
+main.py: error: argument --duracao: valor invalido: '-5' (deve ser maior que zero)
+
+# --tempo-comendo nao numerico -> erro: valor invalido
+main.py: error: argument --tempo-comendo/--comendo: valor invalido: 'abc' (deve ser um numero)
+
+# Versao 2 com os mesmos tempos -> sem deadlock
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 0.1
+tempo comendo: 0.1
+duracao: 3.0
+=============================
+
+# Versao 2 com tempos maiores (1.0s) -> sem deadlock
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 1.0
+tempo comendo: 1.0
+duracao: 3.0
+=============================
+
+# Versao 2 so com --duracao, resto no padrao (n=4) -> sem deadlock
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 0.2
+tempo comendo: 0.2
+duracao: 2.0
+=============================
+
+# Versao 2 com -n 6 -> cabecalho mostra 6 filosofos
+=== Jantar dos Filosofos ===
+filosofos: 6
+tempo pensando: 0.1
+tempo comendo: 0.1
+duracao: 2.0
+=============================
+
+# Nomes curtos --pensando/--comendo sao aceitos
+=== Jantar dos Filosofos ===
+filosofos: 4
+tempo pensando: 0.1
+tempo comendo: 0.1
+duracao: 2.0
+=============================
+
+# Versao invalida (--versao 3) -> erro de escolha invalida
+main.py: error: argument --versao: invalid choice: 3 (choose from 1, 2)
+
+# Sem --versao -> erro de argumento obrigatorio
+main.py: error: the following arguments are required: --versao
+
+# -n abaixo do minimo (-n 1) -> erro: minimo 2
+main.py: error: argument -n: -n deve ser no minimo 2 (recebido 1)
+
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <time.h>
+
+#define N 5
+
+pthread_mutex_t garfo[N];
+pthread_mutex_t mutex_log = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t mutex_refeicoes = PTHREAD_MUTEX_INITIALIZER;
+
+int refeicoes[N] = {0};
+struct timespec inicio_execucao;
+
+double tempo_decorrido() {
+    struct timespec agora;
+    clock_gettime(CLOCK_MONOTONIC, &agora);
+    return (agora.tv_sec - inicio_execucao.tv_sec) +
+           (agora.tv_nsec - inicio_execucao.tv_nsec) / 1e9;
+}
+
+void log_msg(const char *msg, int a, int b) {
+    pthread_mutex_lock(&mutex_log);
+    double t = tempo_decorrido();
+    if (b >= 0) {
+        printf("[%.2fs] ", t);
+        printf(msg, a, b);
+    } else if (a >= 0) {
+        printf("[%.2fs] ", t);
+        printf(msg, a);
+    } else {
+        printf("[%.2fs] %s\n", t, msg);
+    }
+    fflush(stdout);
+    pthread_mutex_unlock(&mutex_log);
+}
+
+void registrar_refeicao(int i) {
+    pthread_mutex_lock(&mutex_refeicoes);
+    refeicoes[i]++;
+    pthread_mutex_unlock(&mutex_refeicoes);
+}
+
+void imprimir_resumo() {
+    int total = 0;
+    pthread_mutex_lock(&mutex_refeicoes);
+    pthread_mutex_lock(&mutex_log);
+
+    printf("\nRefeicoes por filosofo:");
+    for (int i = 0; i < N; i++) {
+        printf(" F%d=%d", i, refeicoes[i]);
+        total += refeicoes[i];
+    }
+    printf("\nTotal: %d refeicoes em %.2fs\n", total, tempo_decorrido());
+    fflush(stdout);
+
+    pthread_mutex_unlock(&mutex_log);
+    pthread_mutex_unlock(&mutex_refeicoes);
+}
+
+void *filosofo(void *arg) {
+    int i = (long long)arg;
+    int esq = i;
+    int dir = (i + 1) % N;
+
+    pthread_mutex_lock(&garfo[esq]);
+    log_msg("Filosofo %d pegou o garfo %d\n", i, esq);
+    sleep(1);
+
+    log_msg("Filosofo %d espera o garfo %d...\n", i, dir);
+    pthread_mutex_lock(&garfo[dir]);   // deadlock acontece aqui
+
+    log_msg("Filosofo %d comendo\n", i, -1);
+    sleep(1);
+    registrar_refeicao(i);
+
+    pthread_mutex_unlock(&garfo[dir]);
+    pthread_mutex_unlock(&garfo[esq]);
+    return NULL;
+}
+
+int main() {
+    pthread_t t[N];
+    clock_gettime(CLOCK_MONOTONIC, &inicio_execucao);
+
+    for (int i = 0; i < N; i++)
+        pthread_mutex_init(&garfo[i], NULL);
+
+    for (long long i = 0; i < N; i++)
+        pthread_create(&t[i], NULL, filosofo, (void *)i);
+
+    for (int i = 0; i < N; i++)
+        pthread_join(t[i], NULL);
+
+    imprimir_resumo();
+    return 0;
+}
+"""Versao 1 - COM DEADLOCK, com parametros (Pessoa 4).
+Baseada na logica de versao1_com_deadlock.c (Pessoa 1), que continua intacto.
+Cada filosofo pega primeiro o garfo da esquerda e depois o da direita; com uma
+pequena pausa entre os dois, todos ficam segurando um garfo esperando o outro
+(espera circular = deadlock).
+A funcao executar() recebe N, tempos e duracao em vez de valores fixos.
+"""
+import threading
+import time
+
+
+def executar(N, pensando, comendo, duracao):
+    garfos = [threading.Lock() for _ in range(N)]
+    lock_log = threading.Lock()
+    refeicoes = [0] * N
+    estado = {"em_execucao": True}
+    inicio = time.time()
+
+    def log(msg):
+        with lock_log:
+            print(f"[{time.time() - inicio:.2f}s] {msg}", flush=True)
+
+    def filosofo(i):
+        esq = i
+        dir_ = (i + 1) % N
+
+        while estado["em_execucao"]:
+            log(f"F{i} pensando")
+            time.sleep(pensando)
+            if not estado["em_execucao"]:
+                break
+
+            garfos[esq].acquire()
+            log(f"F{i} pegou garfo {esq}")
+            time.sleep(0.3)  # pausa curta para forcar o impasse
+
+            log(f"F{i} espera o garfo {dir_}...")
+            garfos[dir_].acquire()  # deadlock acontece aqui
+            log(f"F{i} pegou garfo {dir_}")
+
+            log(f"F{i} comendo")
+            refeicoes[i] += 1
+            time.sleep(comendo)
+
+            garfos[dir_].release()
+            garfos[esq].release()
+            log(f"F{i} largou garfos")
+
+    # daemon=True: threads bloqueadas pelo deadlock nao impedem o programa de encerrar
+    threads = [threading.Thread(target=filosofo, args=(i,), daemon=True) for i in range(N)]
+    for t in threads:
+        t.start()
+
+    time.sleep(duracao)
+    estado["em_execucao"] = False
+
+    # da tempo para quem so esta dormindo terminar; quem sobrar esta bloqueado
+    prazo = time.time() + pensando + comendo + 0.6
+    for t in threads:
+        t.join(timeout=max(0.0, prazo - time.time()))
+
+    travadas = sum(1 for t in threads if t.is_alive())
+    if travadas > 0:
+        log(f"DEADLOCK DETECTADO: {travadas} filosofo(s) ainda bloqueado(s) apos {duracao:.0f}s")
+
+    print("\nRefeicoes por filosofo:", " ".join(f"F{i}={refeicoes[i]}" for i in range(N)))
+    print(f"Total: {sum(refeicoes)} refeicoes em {duracao:.0f}s")
+"""Versao 2 - SEM DEADLOCK, com parametros (Pessoa 4).
+Baseada na logica de versao2_sem_deadlock.py (Nicolas), que continua intacto.
+Aqui o codigo virou a funcao executar(), que recebe N, tempos e duracao
+em vez de usar valores fixos. A logica e a mesma.
+"""
+import threading
+import time
+
+
+def executar(N, pensando, comendo, duracao):
+  garfos = [threading.Lock() for _ in range(N)]
+  lock_log = threading.Lock()
+  refeicoes = [0] * N
+  estado = {"em_execucao": True}
+  inicio = time.time()
+
+  def log(msg):
+    with lock_log:
+      tempo = time.time() - inicio
+      print(f"[{tempo:.2f}s] {msg}", flush=True)
+
+  def filosofo(id_filosofo):
+    esquerda = id_filosofo
+    direita = (id_filosofo + 1) % N
+
+    if esquerda < direita:
+      primeiro = esquerda
+      segundo = direita
+    else:
+      primeiro = direita
+      segundo = esquerda
+
+    while estado["em_execucao"]:
+      log(f"F{id_filosofo} pensando")
+      time.sleep(pensando)
+      if not estado["em_execucao"]:
+        break
+
+      with garfos[primeiro]:
+        log(f"F{id_filosofo} pegou garfo {primeiro}")
+        with garfos[segundo]:
+          log(f"F{id_filosofo} pegou garfo {segundo}")
+          log(f"F{id_filosofo} comendo")
+          time.sleep(comendo)
+          refeicoes[id_filosofo] += 1
+
+      log(f"F{id_filosofo} largou garfos")
+
+  threads = []
+  for i in range(N):
+    t = threading.Thread(target=filosofo, args=(i,))
+    threads.append(t)
+    t.start()
+
+  time.sleep(duracao)
+  estado["em_execucao"] = False
+
+  for t in threads:
+    t.join()
+
+  resumo = ""
+  for i in range(N):
+    resumo += f"F{i}={refeicoes[i]} "
+
+  print("\nRefeicoes por filosofo:", resumo.strip())
+  print(f"Total: {sum(refeicoes)} refeicoes em {duracao:.0f}s")
+import threading
+import time
+
+N = 4
+garfos = [threading.Lock() for _ in range(N)]
+lock_log = threading.Lock()
+refeicoes = [0] * N
+em_execucao = True
+inicio = time.time()
+
+
+def log(msg):
+  with lock_log:
+    tempo = time.time() - inicio
+    print(f"[{tempo:.2f}s] {msg}")
+
+
+def filosofo(id_filosofo):
+  esquerda = id_filosofo
+  direita = (id_filosofo + 1) % N
+
+  if esquerda < direita:
+    primeiro = esquerda
+    segundo = direita
+  else:
+    primeiro = direita
+    segundo = esquerda
+
+  while em_execucao:
+    log(f"F{id_filosofo} pensando")
+    time.sleep(0.1)
+    if not em_execucao:
+      break
+
+    with garfos[primeiro]:
+      log(f"F{id_filosofo} pegou garfo {primeiro}")
+      with garfos[segundo]:
+        log(f"F{id_filosofo} pegou garfo {segundo}")
+        log(f"F{id_filosofo} comendo")
+        time.sleep(0.1)
+        refeicoes[id_filosofo] += 1
+
+    log(f"F{id_filosofo} largou garfos")
+
+
+threads = []
+for i in range(N):
+  t = threading.Thread(target=filosofo, args=(i,))
+  threads.append(t)
+  t.start()
+
+time.sleep(10)
+em_execucao = False
+
+for t in threads:
+  t.join()
+
+resumo = ""
+for i in range(N):
+  resumo += f"F{i}={refeicoes[i]} "
+
+print("\nRefeicoes por filosofo:", resumo.strip())
+print(f"Total: {sum(refeicoes)} refeicoes em 10s")
