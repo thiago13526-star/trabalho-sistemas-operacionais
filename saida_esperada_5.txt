@@ -1,7 +1,0 @@
-# Versao 2 com -n 6 -> cabecalho mostra 6 filosofos
-=== Jantar dos Filosofos ===
-filosofos: 6
-tempo pensando: 0.1
-tempo comendo: 0.1
-duracao: 2.0
-=============================
