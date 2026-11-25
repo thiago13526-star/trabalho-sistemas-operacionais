@@ -1,7 +1,0 @@
-# Nomes curtos --pensando/--comendo sao aceitos
-=== Jantar dos Filosofos ===
-filosofos: 4
-tempo pensando: 0.1
-tempo comendo: 0.1
-duracao: 2.0
-=============================
