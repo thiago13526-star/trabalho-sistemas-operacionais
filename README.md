@@ -1,4 +1,4 @@
-# Jantar dos Filósofos — 2 Versões (4 Filósofos, 4 Garfos)
+[# Jantar dos Filósofos — 2 Versões (4 Filósofos, 4 Garfos)
 
 Trabalho 1 de Sistemas Operacionais — Engenharia de Computação.
 Parte da **Pessoa 5 (Testes e README)**: arquivos de entrada/saída
@@ -152,3 +152,4 @@ casos passaram nas 3 execuções):
    recomenda-se rodar a Versão 2 por uma duração bem mais longa
    (minutos) e comparar a variação entre o filósofo que mais comeu e
    o que menos comeu.
+](https://github.com/thiago13526-star/trabalho-sistemas-operacionais/tree/main)
