@@ -1,8 +1,0 @@
-# Versao 1 com tempos curtos -> deadlock detectado
-=== Jantar dos Filosofos ===
-filosofos: 4
-tempo pensando: 0.1
-tempo comendo: 0.1
-duracao: 3.0
-=============================
-DEADLOCK DETECTADO: N filosofo(s) ainda bloqueado(s) apos 3s
