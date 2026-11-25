@@ -1,1 +1,0 @@
---versao 1 --tempo-pensando 0.1 --tempo-comendo 0.1 --duracao 3
