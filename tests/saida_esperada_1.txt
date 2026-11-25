@@ -1,0 +1,7 @@
+# Versao 1 deve travar (deadlock)
+=== Jantar dos Filosofos - Versao 1 (COM deadlock) ===
+filosofos/garfos : 4
+tempo pensando   : 0.1s
+tempo comendo    : 0.1s
+duracao          : 3.0s
+DEADLOCK DETECTADO: N filosofo(s) ainda bloqueado(s) apos 3s

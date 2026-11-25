@@ -1,0 +1,6 @@
+# Versao 2 nao trava
+=== Jantar dos Filosofos - Versao 2 (SEM deadlock) ===
+filosofos/garfos : 4
+tempo pensando   : 0.1s
+tempo comendo    : 0.1s
+duracao          : 3.0s

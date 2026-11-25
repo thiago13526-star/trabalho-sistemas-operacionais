@@ -1,0 +1,2 @@
+# Duracao negativa
+main.py: error: argument --duracao: --duracao deve ser maior que zero (recebido: -5)

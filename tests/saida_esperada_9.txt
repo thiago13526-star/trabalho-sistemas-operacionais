@@ -1,0 +1,2 @@
+# n invalido (1 filosofo)
+main.py: error: -n deve ser pelo menos 2 (com 1 filosofo nao ha dois garfos)

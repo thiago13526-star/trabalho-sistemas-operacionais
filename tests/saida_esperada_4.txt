@@ -1,0 +1,6 @@
+# Valores padrao (n=4) na versao 2
+=== Jantar dos Filosofos - Versao 2 (SEM deadlock) ===
+filosofos/garfos : 4
+tempo pensando   : 0.2s
+tempo comendo    : 0.2s
+duracao          : 2.0s

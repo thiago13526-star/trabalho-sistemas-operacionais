@@ -1,0 +1,6 @@
+# Nomes curtos dos parametros (--pensando/--comendo)
+=== Jantar dos Filosofos - Versao 2 (SEM deadlock) ===
+filosofos/garfos : 4
+tempo pensando   : 0.1s
+tempo comendo    : 0.1s
+duracao          : 2.0s
