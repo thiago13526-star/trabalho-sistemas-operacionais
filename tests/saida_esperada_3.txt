@@ -1,0 +1,6 @@
+# Versao 2 com tempo de pensar longo (sem falso deadlock)
+=== Jantar dos Filosofos - Versao 2 (SEM deadlock) ===
+filosofos/garfos : 4
+tempo pensando   : 1.0s
+tempo comendo    : 0.1s
+duracao          : 3.0s

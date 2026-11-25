@@ -1,0 +1,1 @@
+--versao 2 --pensando 0.1 --comendo 0.1 --duracao 2
